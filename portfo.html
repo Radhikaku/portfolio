@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radhika Kumari - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #e0f2fe; /* Changed from bg-gray-50 */
+        }
+        .dark-mode {
+            background-color: #1e3a8a; /* Changed from #1f2937 */
+            color: #e5e7eb;
+        }
+        .section-heading {
+            position: relative;
+            font-weight: 700;
+            color: #1e40af;
+            padding-bottom: 0.5rem;
+        }
+        .dark-mode .section-heading {
+            color: #60a5fa;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            border-radius: 2px;
+        }
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dark-mode .card {
+            background: #374151;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #3b82f6;
+        }
+        .nav-link.active {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        .hero-img {
+            border: 4px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode .hero-img {
+            border-color: #60a5fa;
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skill-bar {
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 0.5rem;
+            position: relative;
+        }
+        .dark-mode .skill-bar {
+            background-color: #4b5563;
+        }
+        .skill-progress {
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 1s ease-in-out;
+        }
+        .project-details {
+            display: none;
+            margin-top: 1rem;
+        }
+        .project-details.visible {
+            display: block;
+        }
+        .typing {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Radhika Kumari</h1>
+                <div class="flex items-center space-x-4">
+                    <a href="#home" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500">Home</a>
+                    <a href="#education" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500">Education</a>
+                    <a href="#skills" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500">Projects</a>
+                    <a href="#achievements" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500">Achievements</a>
+                    <a href="#contact" class="nav-link text-gray-600 dark:text-gray-300 hover:text-blue-500">Contact</a>
+                    <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-blue-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-16 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-on-scroll">Radhika Kumari</h2>
+                <p class="text-lg md:text-xl mb-6 animate-on-scroll typing">B.Tech IT Student | Aspiring Software Developer</p>
+                <a href="mailto:radhika43821@gmail.com" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition animate-on-scroll">Contact Me</a>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+                <img src="C:\Users\HP\OneDrive\Desktop\passportseizephotp.jpg" alt="Profile" class="w-64 h-64 rounded-full hero-img animate-on-scroll" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section id="summary" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl section-heading mb-8 animate-on-scroll">Professional Summary</h2>
+            <div class="card animate-on-scroll">
+                <p class="text-gray-700 dark:text-gray-300">
+                    Aspiring Software Developer pursuing a B.Tech in Information Technology with hands-on experience in building web and mobile applications using Java, React JS, and MySQL. Skilled in designing efficient solutions and collaborating in team environments to deliver high-quality projects. Passionate about developing innovative software solutions and eager to contribute to cutting-edge technologies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-16 bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl section-heading mb-8 animate-on-scroll">Education</h2>
+            <div class="card animate-on-scroll">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Bachelor of Technology in Information Technology</h3>
+                <p class="text-gray-600 dark:text-gray-300">Chandigarh Group of Colleges, Landran | 2022 - 2026</p>
+                <p class="text-gray-600 dark:text-gray-300">CGPA: 7.88</p>
+            </div>
+            <div class="card animate-on-scroll">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Intermediate (CBSE)</h3>
+                <p class="text-gray-600 dark:text-gray-300">British English School, Gaya | 2020 - 2022</p>
+                <p class="text-gray-600 dark:text-gray-300">Percentage: 73.2%</p>
+            </div>
+            <div class="card animate-on-scroll">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Matriculation (CBSE)</h3>
+                <p class="text-gray-600 dark:text-gray-300">British English School, Gaya | 2019 - 2020</p>
+                <p class="text-gray-600 dark:text-gray-300">Percentage: 84.4%</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Competencies -->
+    <section id="skills" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl section-heading mb-8 animate-on-scroll">Technical Competencies</h2>
+            <div class="card animate-on-scroll">
+                <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                    <!-- Programming Languages -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Programming Languages: Java</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-blue-600" style="width: 0%" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>JavaScript</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-blue-600" style="width: 0%" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>HTML</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-blue-600" style="width: 0%" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>CSS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-blue-600" style="width: 0%" data-width="85"></div>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Databases: MySQL</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-blue-600" style="width: 0%" data-width="75"></div>
+                        </div>
+                    </div>
+
+                    <!-- Frameworks -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Frameworks: React JS</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-blue-600" style="width: 0%" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>JSP</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-blue-600" style="width: 0%" data-width="65"></div>
+                        </div>
+                    </div>
+
+                    <!-- Operating Systems -->
+                    <div>
+                        <span><strong>Operating Systems:</strong> Windows, Linux, MacOS</span>
+                    </div>
+
+                    <!-- Tools -->
+                    <div>
+                        <span><strong>Tools:</strong> Git, VS Code</span>
+                    </div>
+
+                    <!-- Interpersonal Skills -->
+                    <div>
+                        <span><strong>Interpersonal Skills:</strong> Team Leadership, Decision Making, Analytical Skills, Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-16 bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl section-heading mb-8 animate-on-scroll">Projects</h2>
+            <div class="card animate-on-scroll">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Exam Sitting Arrangement System</h3>
+                <p class="text-gray-600 dark:text-gray-300">Developer | 1 Month | Team Size: 2</p>
+                <p class="text-gray-600 dark:text-gray-300"><strong>Technologies:</strong> Java, JSP, MySQL, JavaScript, HTML, CSS</p>
+                <p class="text-gray-600 dark:text-gray-300"><strong>Description:</strong> Developed an application to automate seat allocation for examinations, reducing allocation time by 50%. Features included automated seat assignments and student detail management.</p>
+                <button class="mt-2 text-blue-500 hover:underline" onclick="toggleProjectDetails('project1')">View More Details</button>
+                <div id="project1" class="project-details text-gray-600 dark:text-gray-300">
+                    <p>Additional details: Integrated user authentication and real-time updates using JavaScript. Challenges included handling large datasets efficiently, solved by optimizing SQL queries.</p>
+                    <a href="https://github.com/yourusername/exam-sitting-system" class="text-blue-500 hover:underline" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+            <div class="card animate-on-scroll">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Attendance Management System</h3>
+                <p class="text-gray-600 dark:text-gray-300">Developer | 1 Month | Individual</p>
+                <p class="text-gray-600 dark:text-gray-300"><strong>Technologies:</strong> HTML, CSS, JavaScript, React JS</p>
+                <p class="text-gray-600 dark:text-gray-300"><strong>Description:</strong> Built a React JS-based system to automate attendance tracking for 200+ students, improving data accuracy and generating detailed reports.</p>
+                <button class="mt-2 text-blue-500 hover:underline" onclick="toggleProjectDetails('project2')">View More Details</button>
+                <div id="project2" class="project-details text-gray-600 dark:text-gray-300">
+                    <p>Additional details: Used React hooks for state management and implemented export to CSV functionality. Improved UI/UX with responsive design.</p>
+                    <a href="https://github.com/yourusername/attendance-system" class="text-blue-500 hover:underline" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Certifications -->
+    <section id="achievements" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl section-heading mb-8 animate-on-scroll">Achievements & Certifications</h2>
+            <div class="card animate-on-scroll">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Certifications</h3>
+                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                    <li>Web Development Engineer Certification, AWS (2022)</li>
+                    <li>Certificate of Participation, TechGIG</li>
+                    <li>Summer Training Certification, Infosys Solitaire</li>
+                </ul>
+            </div>
+            <div class="card animate-on-scroll">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Academic Achievements</h3>
+                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                    <li>Participated in Science Exhibition, Chandigarh Group of Colleges, Landran</li>
+                    <li>Won prizes in school-level Singing Competitions</li>
+                </ul>
+            </div>
+            <div class="card animate-on-scroll">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Extracurricular Achievements</h3>
+                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                    <li>Active participant in college programming events</li>
+                    <li>Working member of Navprayas NGO, Gaya, Bihar</li>
+                    <li>Awarded Silver Medal in Kho-Kho</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl section-heading mb-8 animate-on-scroll">Contact</h2>
+            <div class="card animate-on-scroll">
+                <form id="contact-form" class="space-y-4 text-gray-700 dark:text-gray-300">
+                    <div>
+                        <label for="name" class="block mb-1">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-2 rounded border dark:bg-gray-700 dark:border-gray-600" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-1">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-2 rounded border dark:bg-gray-700 dark:border-gray-600" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-1">Message</label>
+                        <textarea id="message" name="message" class="w-full p-2 rounded border dark:bg-gray-700 dark:border-gray-600" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">Send Message</button>
+                </form>
+                <p class="mt-4 text-center"><strong>Or reach me at:</strong></p>
+                <p class="text-center"><strong>Email:</strong> <a href="mailto:radhika43821@gmail.com" class="text-blue-500 hover:underline">radhika43821@gmail.com</a></p>
+                <p class="text-center"><strong>Phone:</strong> 9135349278</p>
+                <p class="text-center"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/radhika-kumari" class="text-blue-500 hover:underline" target="_blank">linkedin.com/in/radhika-kumari</a></p>
+                <p class="text-center"><strong>Address:</strong> Manpur, Patwatoli, Gaya, Bihar-823003</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Radhika Kumari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dark Mode, Scroll Animations, and Enhancements -->
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const updateThemeIcon = () => {
+            themeToggle.innerHTML = document.body.classList.contains('dark-mode')
+                ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>'
+                : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>';
+        };
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            updateThemeIcon();
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        updateThemeIcon();
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Highlight Active Nav Link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        sections.forEach(section => navObserver.observe(section));
+
+        // Scroll Animation
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Trigger skill bar animations
+                    if (entry.target.id === 'skills') {
+                        document.querySelectorAll('.skill-progress').forEach(bar => {
+                            bar.style.width = `${bar.dataset.width}%`;
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(element => observer.observe(element));
+
+        // Toggle Project Details
+        function toggleProjectDetails(id) {
+            const details = document.getElementById(id);
+            details.classList.toggle('visible');
+        }
+
+        // Contact Form Submission (using Formspree as example; replace with your endpoint)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Example: Send form data via fetch to a service like Formspree
+            fetch('https://formspree.io/f/your-form-id', { // Replace with actual Formspree ID
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    this.reset();
+                } else {
+                    alert('Error sending message. Please try again.');
+                }
+            }).catch(error => {
+                alert('Error: ' + error);
+            });
+        });
+    </script>
+</body>
+</html>
